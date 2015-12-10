@@ -34,4 +34,40 @@ line-height: 30px;
 color: #555555;
 }
 
+/* Groups Selector для странички групп */
+#group-selector1 {
+margin-top: 30px;
+}
+#group-selector1 select {
+margin: 0;
+width: 85%;
+//-moz-appearance: none;
+border-radius: 5px;
+background-color: #ffffff;
+border: 1px solid #cccccc;
+height: 30px;
+line-height: 30px;
+color: #555555;
+}
+
+#attendance {
+border: 1px solid #cccccc;
+}
+
+
+#attendance th {
+border: 1px solid #cccccc;
+text-align:center;		
+}
+
+#attendance td {
+border: 1px solid #cccccc;
+text-align:center;		
+}
+
+#foto {
+border-radius:20px; 
+border: 1px solid #cccccc;
+}
+
 
