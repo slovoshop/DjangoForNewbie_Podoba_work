@@ -2,37 +2,32 @@
 
 {% load static from staticfiles %}
 
-{% block meta_title %}Студенти{% endblock meta_title %}
+{% block meta_title %}Групи{% endblock meta_title %}
 
-{% block title %}База Студентів{% endblock title %}
+{% block title %}Групи{% endblock title %}
 
 {% block content %}
 
  <!-- Add Student Button -->
-	    <a class="btn btn-primary" href={% url "students_add" %}>Додати Студента</a>
+	    <a class="btn btn-primary" href={% url "students_add" %}>Додати групу</a>
 
 	    <!-- Start Students Listing -->
 	      <table class="table table-hover table-striped">
 		<thead>
 		      <tr>
-		      <th>No</th>
-		      <th>Фото</th>
-		      <th>Прізвище</th>
-		      <th>Ім'я</th>
-		      <th>No Білету</th>
+		      <th>#</th>
+		      <th><a title="Редагувати" href="#">Назва&uarr;</a></th>
+		      <th><a title="Редагувати" href="#">Староста</a></th>
 		      <th>Дії</th>
 		      </tr>
 		</thead>
 
 	        <tbody>
-		  {% for student in students %}
+		  {% for group in groups %}
 		    <tr>
 		    <td>{{ forloop.counter }}</td>
-		    <td><img class="img-circle" src="{% static student.image %}" 
-			     height="30" width="30" /></td>
-		    <td><a href="{% url "students_edit" student.id %}">{{ student.last_name }}</td>
-		    <td><a href="{% url "students_edit" student.id %}">{{ student.first_name }}</td>
-		    <td>{{ student.ticket }}</td>
+		    <td><a href="{% url "groups_edit" group.id %}">{{ group.name }}</td>
+		    <td><a href="{% url "groups_edit" group.id %}">{{ group.leader }}</td>
 		
 		    <td>
 			<div class="btn-group">
@@ -40,9 +35,9 @@
 			        data-toggle="dropdown">Дія<span class="caret"></span></button>
 			
 			  <ul class="dropdown-menu" role="menu">
-			    <li><a href="{% url "students_edit" student.id %}">Редагувати</a></li>
-			    <li><a href="/journal/{{ student.id }}">Відвідування</a></li>
-			    <li><a href="{% url "students_delete" student.id %}">Видалити</a></li>
+			    <li><a href="{% url "groups_edit" group.id %}">Редагувати</a></li>
+			    <li><a href="#">Відвідування</a></li>
+			    <li><a href="{% url "groups_delete" group.id %}">Видалити</a></li>
 			  </ul>
 			</div>
 		    </td>
