@@ -1,0 +1,78 @@
+
+MVC		model-		view-		controller
+MTV 	(Django)	model-		template-	view
+
+Процесор контексту (context processor) - це функція, яка приймає об’єкт
+запиту і повертає словник із даними, що стають автоматично доступними
+у кожному шаблоні проекту, який використовує даний процесор.
+
+Проблема №1
+
+При запуске сервера (python manage.py runserver) получал предупреждение:
+
+urls.py:22: RemovedInDjango110Warning: Support for string view arguments 
+to url() is deprecated and will be removed in Django 1.10 
+(got students.views.students_list). Pass the callable instead.
+url(r'^$', 'students.views.students_list', name='home')
+
+Решение
+
+В файле urls.py добавить строку импорта вьюшек апликации:
+import students.views
+в теге ссылку на вьюшку писать без кавычек:
+url(r'^$', students.views.students_list, name='home')
+
+Проблема №2
+
+urls.py:40: RemovedInDjango110Warning: django.conf.urls.patterns() 
+is deprecated and will be removed in Django 1.10. 
+Update your urlpatterns to be a list of django.conf.urls.url() instances instead.
+
+Решение
+
+В файле urls.py вместо старого формата:
+
+urlpatterns = pattern('',
+    url(...),
+    url(...),
+)
+
+использовать новый формат:
+
+urlpatterns = [
+    url(...),
+    url(...),
+]
+
+При этом из строки from django.conf.urls import patterns, include, url
+можно убрать функцию patterns
+
+Проблема №3
+
+После добавление в файл settings.py:
+
+TEMPLATE_CONTEXT_PROCESSORS =
+global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+"django.core.context_processors.request",
+)
+выключается сервер.
+
+Решение
+
+В версии Django 1.9 не нужно специально добавлять этот код,
+т.к. этот контекстный процессор по умолчанию включен в TEMPLATES
+в виде django.template.context_processors.request
+
+
+Проблема №4
+
+После создания подпакета views и  модулей students.py, groups.py, journal.py
+и корректировки ссылок в модуле urls.py апликация грузится с ошибками
+
+Решение
+
+В модуле urls.py нужно также правильно откорректировать импорт вьюшек:
+вместо import students.views (для вьюшки views.py) нужно прописать
+import students.views.students, students.views.groups, students.views.journal
+
+
