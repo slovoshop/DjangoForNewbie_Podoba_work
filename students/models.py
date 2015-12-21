@@ -47,7 +47,8 @@ class Student(models.Model):
 	notes = models.TextField(
 		blank=True,
 		verbose_name=u"Додаткові нотатки")
-
+	
+	#представление модели в среде shell и в админке
 	def __unicode__(self):
 		return u"%s %s" % (self.first_name, self.last_name)
 
