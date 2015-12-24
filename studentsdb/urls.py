@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-import students.views.students, students.views.groups, students.views.journal 
+import students.views.students, students.views.groups, students.views.journal, students.views.test 
 from .settings import MEDIA_ROOT, DEBUG
 
 urlpatterns = [
@@ -43,6 +43,10 @@ urlpatterns = [
   url(r'^journal/$', students.views.journal.journal_list, name='journal'),
 
   url(r'^admin/', include(admin.site.urls)),
+
+#Test page
+  url(r'^test/$', students.views.test.test,
+    name='test'),
 ]
 
 

@@ -35,7 +35,6 @@ def students_list(request):
 		return render(request, 'students/students_list.html',
 		{'students': students})
 
-		return render(request, 'students/students_list.html', {'students': students})
 
 def students_add(request):
   return HttpResponse('<h1>Student Add Form</h1>')

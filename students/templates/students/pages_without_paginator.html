@@ -2,9 +2,9 @@
 
 {% load static from staticfiles %}
 
-{% block meta_title %}Студенти{% endblock meta_title %}
+{% block meta_title %}Тестовая страница{% endblock meta_title %}
 
-{% block title %}База Студентів{% endblock title %}
+{% block title %}Тестовая страница{% endblock title %}
 
 {% block content %}
 
@@ -17,7 +17,7 @@
 		{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 		<thead>
 		      <tr>
-		      <th><a href="{% url "home" %}?order_by=id
+		      <th><a href="{% url "test" %}?order_by=id
 							{% if order_by == 'id' and reverse != '1' %}
 								&amp;reverse=1{% endif %}">
 								#
@@ -26,7 +26,7 @@
 								{% endif %}
 							</a></th>
 		      <th>Фото</th>
-		      <th><a href="{% url "home" %}?order_by=last_name
+		      <th><a href="{% url "test" %}?order_by=last_name
 							{% if order_by == 'last_name' and reverse != '1' %}
 								&amp;reverse=1{% endif %}">
 								Прізвище
@@ -35,7 +35,7 @@
 								{% elif order_by == 'last_name' and reverse == '1' %}&darr;
 								{% endif %}
 							</a></th>
-		      <th><a href="{% url "home" %}?order_by=first_name
+		      <th><a href="{% url "test" %}?order_by=first_name
 							{% if order_by == 'first_name' and reverse != '1' %}
 								&amp;reverse=1{% endif %}">
 								Ім'я
@@ -43,7 +43,7 @@
 								{% elif order_by == 'first_name' and reverse == '1' %}&darr;
 								{% endif %}
 							</a></th>
-		      <th><a href="{% url "home" %}?order_by=ticket
+		      <th><a href="{% url "test" %}?order_by=ticket
 							{% if order_by == 'ticket' and reverse != '1' %}
 								&amp;reverse=1{% endif %}">
 								№ білету
@@ -59,7 +59,7 @@
 	        <tbody>
 		  {% for student in students %}
 		    <tr>
-		    <td>{{ forloop.counter }}</td>
+		    <td>{{ student.id }}</td>
 		    <td>{% if student.photo %}
 							<img class="img-circle" src="{{ student.photo.url }}" height="30" width="30" />
 						{% else %}
@@ -91,41 +91,42 @@
 		 {% include "students/pagination.html" %}
 	   {% endcomment %}
 
-		{% if students.has_other_pages %}
-		{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+		<!-- Start Paganation -->
+
+			{% if pages %}
+			{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 			<nav>
 				<ul class="pagination">
-					<li><a href="{% url "home" %}?page=1&amp;
-																				order_by={{ order_by }}&amp;
-																				reverse={{ reverse }}">&laquo;</a></li>
-					
-					{% for p in students.paginator.page_range %}
-						<li {% if students.number == p %}class="active"{% endif %}>
-							<a href="{% url "home" %}?page={{ p }}&amp;
-																				order_by={{ order_by }}&amp;
-																				reverse={{ reverse }}">{{ p }}</a>
-						</li>
-					{% endfor %}
-
 					<li>
-					<a href="{% url "home" %}?page={{ students.paginator.num_pages }}&amp;
-																		order_by={{ order_by }}&amp;
-																		reverse={{ reverse }}">&raquo;</a>
+						<a href="{% url "test" %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a>
+					</li>
+				 {% for p in pages %}
+					<li {% if page|add:"0" == p %}class="active"{% endif %}>
+						<a href="{% url "test" %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
+					</li>
+					{% endfor %}
+					<li>
+						<a href="{% url "test" %}?page={{ number_of_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&raquo;</a>
 					</li>
 				</ul>
 			</nav>
-		{% endwith %}
-		{% endif %}
+			{% endwith %}
+			{% endif %}
 
 	    <!-- End Students Listing -->
 
 {% endblock content %}
 
-{% block testparams %} 
-	<br><br>
-	<p>order_by = {{ request.GET.order_by }}<br>  
-	reverse = {{ request.GET.reverse }}<br>  
-	page = {{ request.GET.page }}<br>
-	<a href="{% url "test" %}">Перейти на тестовую страницу</p>
-{% endblock testparams %}
+{% comment "Блок отображения наладочных параметров" %}
+	{% block testparams %} 
+		<br><br>
+		<p>order_by = {{ request.GET.order_by }}<br>  
+		reverse = {{ request.GET.reverse }}<br> 
+		page = {{ page }}<br>
+		number_of_pages = {{ number_of_pages }}<br>
+		pages = {{ pages }}<br>
+		testparam1 = {{ testparam1 }}<br>
+		testparam2 = {{ testparam2 }}<p>
+	{% endblock testparams %}
+{% endcomment %}
 
