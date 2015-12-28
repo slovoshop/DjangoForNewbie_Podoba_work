@@ -1,6 +1,7 @@
 {% extends "students/base.html" %}
 
 {% load static from staticfiles %}
+{% load index %}
 
 {% block meta_title %}Студенти{% endblock meta_title %}
 
@@ -54,12 +55,13 @@
 		      <th>Дії</th>
 		      </tr>
 		</thead>
-		{% endwith %}
 
 	        <tbody>
 		  {% for student in students %}
 		    <tr>
-		    <td>{{ student.id }}</td>
+		    <td>{% if reverse == '1' %} {{ id_reverse|index:forloop.counter0 }} 
+						{% else %} {{ forloop.counter|add:id_sort }}
+						{% endif %}</td>
 		    <td>{% if student.photo %}
 							<img class="img-circle" src="{{ student.photo.url }}" height="30" width="30" />
 						{% else %}
@@ -83,6 +85,7 @@
 		    </td>
 		    </tr>
 		  {% endfor %}
+		{% endwith %}
 		</tbody>
 
 	      </table>
@@ -126,7 +129,9 @@
 	<br><br>
 	<p>order_by = {{ request.GET.order_by }}<br>  
 	reverse = {{ request.GET.reverse }}<br>  
-	page = {{ v1 }}<br>
+	test = {{ test }}<br>
+	id_sort = {{ id_sort }}<br>
+	id_reverse = {{ id_reverse }}<br>
 	<a href="{% url "test" %}">Перейти на тестовую страницу</p>
 {% endblock testparams %}
 {% endcomment %}
