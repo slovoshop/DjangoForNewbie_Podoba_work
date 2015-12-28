@@ -15,10 +15,12 @@ def students_list(request):
 		order_by = request.GET.get('order_by', '')
 		if order_by == '':
 			students = students.order_by('last_name') 
-		elif order_by in ('last_name', 'first_name', 'ticket', 'id'):
+		elif order_by == 'ticket':
+			students = students.extra(select={'ticket': 'CAST(ticket AS UNSIGNED)'}).extra(order_by = ['ticket'])
+		elif order_by in ('id', 'last_name', 'first_name'):
 			students = students.order_by(order_by)
-			if request.GET.get('reverse', '') == '1':
-				students = students.reverse()
+		if request.GET.get('reverse', '') == '1':
+			students = students.reverse()
 
 		paginator = Paginator(students, 3)
 		page = request.GET.get('page')
