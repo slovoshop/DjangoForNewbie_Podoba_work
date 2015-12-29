@@ -52,9 +52,13 @@
 		   {% for group in groups %}
 		    <tr>
 		    <td>{{ group.id }}</td>
-		    <td><a href="{% url "groups_edit" group.id %}">{{ group.title }}</td>
-		    <td><a href="{% url "groups_edit" group.id %}">{{ group.leader }}</td>
-		
+		    <td><a title="Редагувати" href="{% url "groups_edit" group.id %}">{{ group.title }}</td>
+      	<td>
+        {% if group.leader.id %}<a title="Редагувати" 
+				href="{% url "students_edit" group.leader.id %}">	{{ group.leader }}</a>
+        {% else %}Немає старости
+        {% endif %}
+      	</td>
 		    <td>
 					<div class="btn-group">
 						<button type="button" class="btn btn-default dropdown-toggle"
