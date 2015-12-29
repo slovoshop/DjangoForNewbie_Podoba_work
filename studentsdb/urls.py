@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-import students.views.students, students.views.groups, students.views.journal, students.views.test, django.views.static 
+import students.views.students, students.views.groups, students.views.journal, students.views.test, students.views.exams, django.views.static 
 from .settings import MEDIA_ROOT, DEBUG
 
 urlpatterns = [
@@ -42,6 +42,9 @@ urlpatterns = [
 #Journal urls
   url(r'^journal/$', students.views.journal.journal_list, name='journal'),
 	url(r'^journal/(?P<sid>\d+)/edit/$', students.views.journal.journal_edit, name='journal_edit'),
+
+#Exams urls
+	url(r'^exams/$', students.views.exams.exams_list, name='exams'),
 
   url(r'^admin/', include(admin.site.urls)),
 
