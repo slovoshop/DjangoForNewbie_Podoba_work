@@ -8,7 +8,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from ..models.students import Student
 from ..models.groups import Group
 
-from datetime import datetime
 
 # Views for Students
 def students_list(request):
@@ -93,9 +92,8 @@ def students_add(request):
 			else:
 				try:
 					datetime.strptime(birthday, '%Y-%m-%d')
-				except Exception as e:
-					errors['birthday'] = 	u"Введіть коректний формат дати (напр. 1984-12-30)" + \
-																" exception: " + e.message
+				except Exception:
+					errors['birthday'] = u"Введіть коректний формат дати (напр. 1984-12-30)"
 				else:
 					data['birthday'] = birthday
 
@@ -117,12 +115,7 @@ def students_add(request):
 
 			photo = request.FILES.get('photo')
 			if photo:
-				if not photo.content_type.split("/")[-1] in ('jpeg', 'png', 'bmp'):
-					errors['photo'] = u"Оберіть файл типу .jpg, .jpeg, .png, .bmp"
-				elif photo._size > 2000000:
-					errors['photo'] = u"Максимальний розмір файлу - 2 МБ"
-				else:
-					data['photo'] = photo
+				data['photo'] = photo
 
 			# save student
 			if not errors:
