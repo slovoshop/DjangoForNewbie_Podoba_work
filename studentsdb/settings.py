@@ -118,11 +118,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-
 PORTAL_URL = ''
-
 MEDIA_URL = '/media/'
-
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
+
+# email settings
+# please, set here you smtp server details and your admin email
+ADMIN_EMAIL = 'k6_alexstr@ukr.net'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = 'kominterna62@gmail.com'
+EMAIL_HOST_PASSWORD = 'k7k7k7k7'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 

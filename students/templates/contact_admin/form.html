@@ -1,0 +1,46 @@
+{% extends "students/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}Зв'язок із Адміністратором{% endblock meta_title %}
+
+{% block title %}Зв'язок із Адміністратором{% endblock title %}
+
+{% block status_message %}
+
+	{% if form.errors %}
+		<div class="alert alert-warning" role="alert">
+			Будь-ласка, виправте наступні помилки
+		</div>
+	{% endif %}
+
+	{{ block.super }}
+
+{% endblock status_message %}
+
+{% block content %}
+
+<form action="{% url "contact_admin" %}" method="post">
+	{% csrf_token %}
+
+	{{ form.as_p }}
+
+	<input type="submit" value="Надіслати" name="send_button" />
+
+</form>
+
+{% endblock content %}
+
+{% comment "Временно отключен" %}
+{% block testparams %} 
+	<br><br>
+	<p>order_by = {{ request.GET.order_by }}<br>  
+	reverse = {{ request.GET.reverse }}<br>  
+	test = {{ test }}<br>
+	id_sort = {{ id_sort }}<br>
+	id_reverse = {{ id_reverse }}<br>
+	<a href="{% url "test" %}">Перейти на тестовую страницу</p>
+{% endblock testparams %}
+{% endcomment %}
+
+

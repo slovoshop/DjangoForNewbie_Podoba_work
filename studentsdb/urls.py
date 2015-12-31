@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-import students.views.students, students.views.groups, students.views.journal, students.views.test, students.views.exams, django.views.static 
+import students.views.students, students.views.groups, students.views.journal, students.views.test, students.views.exams, students.views.contact_admin, django.views.static 
 from .settings import MEDIA_ROOT, DEBUG
 
 urlpatterns = [
@@ -47,6 +47,9 @@ urlpatterns = [
 	url(r'^exams/$', students.views.exams.exams_list, name='exams'),
 
   url(r'^admin/', include(admin.site.urls)),
+
+# Contact Admin Form
+url(r'^contact-admin/$', students.views.contact_admin.contact_admin, name='contact_admin'),
 
 #Test page
   url(r'^test/$', students.views.test.test,
