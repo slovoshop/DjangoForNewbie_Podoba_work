@@ -1,10 +1,29 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.core.urlresolvers import reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from ..models.groups import Group
+
+from django.contrib import messages
+from django.views.generic import DeleteView
+
+
+class GroupDeleteView(DeleteView):
+    model = Group
+    template_name = 'students/groups_confirm_delete.html'
+    
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object.student_set.exists():
+            messages.error(self.request, u'Помилка. Група %s не порожня.' % self.object)
+        else:
+            self.object.delete()
+            messages.success(self.request, u'Групу успішно видалено!')
+        return HttpResponseRedirect(reverse('groups'))
+
 
 # Views for Groups
 
@@ -43,5 +62,4 @@ def groups_add(request):
 def groups_edit(request, gid):
   return HttpResponse('<h1>Edit Group %s</h1>' % gid)
 
-def groups_delete(request, gid):
-  return HttpResponse('<h1>Delete Group %s</h1>' % gid)
+

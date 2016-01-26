@@ -4,3 +4,5 @@
 *.mo
 *.egg
 db.py
+manage.py
+

@@ -1,6 +1,0 @@
-Subject: {{ subject }}
-
-From email: {{ email }}
-
-Message:
-  {{ body }}
