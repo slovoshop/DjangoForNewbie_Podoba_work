@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-import students.views.students, students.views.groups, students.views.journal, students.views.test, students.views.exams,  django.views.static 
+import students.views.students, students.views.groups, students.views.test, students.views.exams,  django.views.static 
 from .settings import MEDIA_ROOT, DEBUG
 
 from students.views.contact_admin import ContactView
 from students.views.students import StudentCreateView, StudentUpdateView, StudentDeleteView
 from students.views.groups import GroupDeleteView
+from students.views.journal import JournalView
 
 
 urlpatterns = [
@@ -43,8 +44,8 @@ urlpatterns = [
   url(r'^groups/(?P<pk>\d+)/delete/$', GroupDeleteView.as_view(), name='groups_delete'),
 
 #Journal urls
-  url(r'^journal/$', students.views.journal.journal_list, name='journal'),
-	url(r'^journal/(?P<sid>\d+)/edit/$', students.views.journal.journal_edit, name='journal_edit'),
+	url(r'^journal/(?P<pk>\d+)?/?$', JournalView.as_view(), name='journal'),  
+	# url(r'^journal/$', JournalView.as_view(), name='journal'),
 
 #Exams urls
 	url(r'^exams/$', students.views.exams.exams_list, name='exams'),

@@ -8,8 +8,10 @@ from django.forms import ModelForm, ValidationError
 
 from .models.students import Student
 from .models.groups import Group
-from .models.journal import Journal
+# from .models.journal import Journal
 from .models.exam import Exam
+
+from .models.monthjournal import MonthJournal
 
 # Register your models here.
 
@@ -81,5 +83,6 @@ class GroupAdmin(admin.ModelAdmin):
 
 admin.site.register(Student, StudentAdmin)
 admin.site.register(Group, GroupAdmin)
-admin.site.register(Journal)
+# admin.site.register(Journal)
 admin.site.register(Exam)
+admin.site.register(MonthJournal)
