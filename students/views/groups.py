@@ -10,6 +10,7 @@ from ..models.groups import Group
 from django.contrib import messages
 from django.views.generic import DeleteView
 
+from ..util import paginate, get_current_group
 
 class GroupDeleteView(DeleteView):
     model = Group
@@ -28,32 +29,27 @@ class GroupDeleteView(DeleteView):
 # Views for Groups
 
 def groups_list(request):
+	groups = []
 
+	# check if we need to show only one student of groups
+	current_group = get_current_group(request)
+	if current_group:
+		groups.append(current_group)
+	else:
+		# otherwise show all groups
 		groups = Group.objects.all()
 
-		# try to order students list
-		order_by = request.GET.get('order_by', '')
-		if order_by == '':
-			groups = groups.order_by('title') 
-		elif order_by in ('title', 'leader', 'id'):
-			groups = groups.order_by(order_by)
-			if request.GET.get('reverse', '') == '1':
-				groups = groups.reverse()
-
-		paginator = Paginator(groups, 3)
-		page = request.GET.get('page')
-		try:
-			groups = paginator.page(page)
-		except PageNotAnInteger:
-			# If page is not an integer, deliver first page.
-			groups = paginator.page(1)
-		except EmptyPage:
-			# If page is out of range (e.g. 9999), deliver
-			# last page of results.
-			groups = paginator.page(paginator.num_pages)
-
-		return render(request, 'students/groups_list.html',
-		{'groups': groups})
+	# try to order group list
+	order_by = request.GET.get('order_by', '')
+	if order_by in ('title', 'leader', 'id'):
+		groups = groups.order_by(order_by)
+		if request.GET.get('reverse', '') == '1':
+			groups = groups.reverse()
+			
+	# apply pagination, 3 students per page
+	context = paginate(groups, 3, request, {}, var_name='groups')
+	
+	return render(request, 'students/groups_list.html', context)
 
 
 def groups_add(request):
