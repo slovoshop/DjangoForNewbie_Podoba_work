@@ -17,6 +17,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Div, HTML
 from crispy_forms.bootstrap import FormActions
 
+from ..util import paginate, get_current_group
 
 # класс формы добавления студента
 class StudentCreateForm(ModelForm):
@@ -96,6 +97,7 @@ class StudentDeleteView(DeleteView):
 		return u'%s?status_message=Студента успішно видалено!' % reverse('home')
 
 
+
 # Views for Students
 def students_list(request):
 		students = Student.objects.all()
@@ -138,6 +140,9 @@ def students_list(request):
 
 		return render(request, 'students/students_list.html',
 		{'students': students, 'id_sort': id_sort, 'id_reverse': id_reverse, 'test': test})
+
+
+
 
 
 
