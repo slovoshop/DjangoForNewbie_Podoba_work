@@ -58,6 +58,7 @@ class StudentUpdateForm(StudentCreateForm):
         self.helper.form_action = reverse('students_edit', kwargs = {'pk': kwargs['instance'].id})
 
 
+
 # добавление студента
 class StudentCreateView(CreateView):
     model = Student
