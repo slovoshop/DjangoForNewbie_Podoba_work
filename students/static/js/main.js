@@ -89,8 +89,8 @@ function initEditStudentPage() {
 				}
 
 				// update modal window with arrived content from the server
-				var modal = $('#myModal'), html = $(data), 
-				form = html.find('#content-column form');
+				var modal = $('#myModal').show(), 
+				html = $(data), form = html.find('#content-column form');
 
 				modal.find('.modal-title').html(html.find('#content-column h2').text());
 				modal.find('.modal-body').html(form);
@@ -151,14 +151,51 @@ function initEditStudentForm(form, modal) {
 				initEditStudentForm(newform, modal);
 
 			} else {
-				// if no form, it means success and we need to reload page
-				// to get updated students list;
-				// reload after 2 seconds, so that user can read
+				// if no form, it means success and we need 
+				// to update students list without page reload;
+				// it will be after 2 seconds, so that user can read
 				// success message
-				setTimeout(function(){location.reload(true);}, 500);
+				updatePageContext();
+				//setTimeout(function() {modal.hide();}, 2000);
+				modal.hide();
 			}
+		},
+
+		// blocking fields during sending
+		'beforeSend': function(data, status, xhr) {
+			var input = $('input', 'textarea').attr('readonly','true');
+			modal.find('.modal-body').html('<div class="alert alert-warning" role="alert">Идет отправка данных.</div>');
 		}
 	});
+}
+
+
+function updatePageContext() {
+	var url = window.location.href;  
+	$.ajax({
+		'url': url,
+		'dataType': 'html',
+		'type': 'get',
+		'success': function(data, status, xhr){
+			// check if we got successfull response from the server
+			if (status != 'success') {
+				alert('Ошибка на сервере, попробуйте пожалуйста позже.');
+				return false;
+			}
+			// update window with arrived content from the server
+			var table = $('.table'), newpage = $(data), newtable = newpage.find('.table');
+			table.html(newtable);
+			//var alert = $('.alert'), newalert = newpage.find('.alert');
+			//alert.html(newalert);
+			initEditStudentPage();
+		},
+
+		'error': function(){
+			alert('Ошибка на сервере, попробуйте пожалуйста позже.');
+			return false;
+		}
+	});
+	return false;
 }
 
 
