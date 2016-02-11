@@ -9,7 +9,8 @@
 {% block content %}
 
  <!-- Add Student Button -->
-	    <a class="btn btn-primary" href={% url "students_add" %}>Додати групу</a>
+
+			<a href="{% url "groups_add" %}" class="btn btn-primary">Додати Групу</a>
 
 	    <!-- Start Students Listing -->
 	      <table class="table table-hover table-striped">

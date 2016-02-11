@@ -38,7 +38,7 @@ def log_student_deleted_event(sender, **kwargs):
 
 @receiver(post_save, sender=Group)
 def log_group_updated_added_event(sender, **kwargs):
-	"""Writes information about newly added or updated student into \
+	"""Writes information about newly added or updated group into \
 	log file"""
 	logger = logging.getLogger(__name__)
 
@@ -50,5 +50,18 @@ def log_group_updated_added_event(sender, **kwargs):
 	else:
 		logger.info("Group updated: %s, leader - %s (ID: %d)", group.title,
 		group.leader, group.id)
+
+
+
+@receiver(post_delete, sender=Group)
+def log_group_deleted_event(sender, **kwargs):
+	"""Writes information about deleted group into log file"""
+	logger = logging.getLogger(__name__)
+
+	group = kwargs['instance']
+
+	logger.info("Group deleted: %s %s (ID: %d)", group.title,
+	group.leader, group.id)
+
 
 

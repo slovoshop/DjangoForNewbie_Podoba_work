@@ -21,7 +21,7 @@ from .settings import MEDIA_ROOT, DEBUG
 
 from students.views.contact_admin import ContactView
 from students.views.students import StudentCreateView, StudentUpdateView, StudentDeleteView
-from students.views.groups import GroupDeleteView
+from students.views.groups import GroupCreateView, GroupUpdateView, GroupDeleteView
 from students.views.journal import JournalView
 
 
@@ -37,10 +37,10 @@ urlpatterns = [
 
 # Groups urls
   url(r'^groups/$', students.views.groups.groups_list, name='groups'),
-  url(r'^groups/add/$', students.views.groups.groups_add,
-    name='groups_add'),
-  url(r'^groups/(?P<gid>\d+)/edit/$', students.views.groups.groups_edit,
-    name='groups_edit'),
+	url(r'^groups/add/$', GroupCreateView.as_view(), name='groups_add'),
+	url(r'^groups/(?P<pk>\d+)/edit/$', GroupUpdateView.as_view(), name='groups_edit'),
+  # url(r'^groups/add/$', students.views.groups.groups_add, name='groups_add'),
+  # url(r'^groups/(?P<gid>\d+)/edit/$', students.views.groups.groups_edit, name='groups_edit'),
   url(r'^groups/(?P<pk>\d+)/delete/$', GroupDeleteView.as_view(), name='groups_delete'),
 
 #Journal urls
