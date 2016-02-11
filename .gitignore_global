@@ -6,5 +6,6 @@
 db.py
 manage.py
 demo_data.json
+studentsdb.log
 
 
