@@ -185,3 +185,11 @@ LOGGING = {
 	}
 }
 
+
+USE_I18N = True
+LANGUAGE_CODE = 'uk'
+USE_L10N = True
+USE_TZ = True
+TIME_ZONE = 'UTC'
+
+

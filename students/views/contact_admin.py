@@ -11,6 +11,8 @@ from django.views.generic.edit import FormView
 from django.core.mail import send_mail
 from studentsdb.settings import ADMIN_EMAIL
 
+import logging
+
 
 class ContactForm(forms.Form):
 
@@ -59,12 +61,14 @@ class ContactView(FormView):
         from_email = form.cleaned_data['from_email']
         
         try:
-            send_mail(subject, message+'\n\nMessage was send from: '+from_email, 'Students DB ', [ADMIN_EMAIL])
-            # pass
+        	send_mail(subject, message+'\n\nMessage was send from: '+from_email, 'Students DB ', [ADMIN_EMAIL])
+          # pass
         except Exception:
-            self.message = u'Під час відправки листа виникла непередбачувана помилка. Спробуйте скористатись даною формою пізніше.'
+					self.message = u'Під час відправки листа виникла непередбачувана помилка.'
+					logger = logging.getLogger(__name__)
+					logger.exception(message)
         else:
-            self.message = u'Повідомлення успішно надіслано.'
+          self.message = u'Повідомлення успішно надіслано.'
             
         return super(ContactView, self).form_valid(form)
         
