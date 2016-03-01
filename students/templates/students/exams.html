@@ -1,10 +1,11 @@
 {% extends "students/base.html" %}
 
+{% load i18n %}
 {% load static from staticfiles %}
 
-{% block meta_title %}Іспити{% endblock meta_title %}
+{% block meta_title %}{% trans "Tests" %}{% endblock meta_title %}
 
-{% block title %}Іспити{% endblock title %}
+{% block title %}{% trans "Tests" %}{% endblock title %}
 
 {% block content %}
 
@@ -17,28 +18,28 @@
       <th>#</th>
       <th>
         <a href="{% url "exams" %}?order_by=title{% if order_by == 'title' and reverse != '1' %}&amp;reverse=1{% endif %}">
-          Назва предмету
+          {% trans "Subject name" %}
           {% if order_by == 'title' and reverse != '1' %}&uarr;
           {% elif order_by == 'title' and reverse == '1' %}&darr;{% endif %}
         </a>
       </th>
       <th>
         <a href="{% url "exams" %}?order_by=date{% if order_by == 'date' and reverse != '1' %}&amp;reverse=1{% endif %}">
-          Дата і час проведення
+          {% trans "Date and time" %}
           {% if order_by == 'date' and reverse != '1' %}&uarr;
           {% elif order_by == 'date' and reverse == '1' %}&darr;{% endif %}
         </a>
       </th>
       <th>
         <a href="{% url "exams" %}?order_by=teacher{% if order_by == 'teacher' and reverse != '1' %}&amp;reverse=1{% endif %}">
-          Ім'я викладача
+          {% trans "Teacher's name" %}
           {% if order_by == 'teacher' and reverse != '1' %}&uarr;
           {% elif order_by == 'teacher' and reverse == '1' %}&darr;{% endif %}
         </a>
       </th>
       <th>
         <a href="{% url "exams" %}?order_by=exam_group{% if order_by == 'exam_group' and reverse != '1' %}&amp;reverse=1{% endif %}">
-          Група
+          {% trans "Group" %}
           {% if order_by == 'exam_group' and reverse != '1' %}&uarr;
           {% elif order_by == 'exam_group' and reverse == '1' %}&darr;{% endif %}
         </a>
@@ -53,7 +54,8 @@
       <td>{{ exam.title }}</td>
       <td>{{ exam.date }}</td>
       <td>{{ exam.teacher }}</td>
-      <td><a title="Редагувати" href="{% url "groups_edit" exam.exam_group.id %}">{{ exam.exam_group.title }}</a></td>
+      <td><a title="{% trans "Edit" %}" 
+				href="{% url "groups_edit" exam.exam_group.id %}">{{ exam.exam_group.title }}</a></td>
     </tr>
     {% endfor %}
           
@@ -61,7 +63,7 @@
 </table>
 <!-- End Listing -->
 {% else %}
- <p>Поки немає груп у базі</p>
+ <p>{% trans "There are no groups in base yet" %}</p>
 {% endif %}
 
 {% with object_list=students %}

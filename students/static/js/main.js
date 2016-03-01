@@ -84,7 +84,7 @@ function initEditStudentPage() {
 			'success': function(data, status, xhr){
 				// check if we got successfull response from the server
 				if (status != 'success') {
-					alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+					alert(gettext('There was an error on the server. Please, try again a bit later.'));
 					return false;
 				}
 
@@ -107,7 +107,7 @@ function initEditStudentPage() {
 			},
 
 			'error': function(){
-				alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+				alert(gettext('There was an error on the server. Please, try again a bit later.'));
 				return false;
 			}
 		});
@@ -133,7 +133,7 @@ function initEditStudentForm(form, modal) {
 		'dataType': 'html',
 
 		'error': function(){
-			alert('Помилка на сервері. Спробуйте будь-ласка пізніше.');
+			alert(gettext('There was an error on the server. Please, try again a bit later.'));
 			return false;
 		},
 
@@ -179,7 +179,7 @@ function updatePageContext() {
 		'success': function(data, status, xhr){
 			// check if we got successfull response from the server
 			if (status != 'success') {
-				alert('Ошибка на сервере, попробуйте пожалуйста позже.');
+				alert(gettext('There was an error on the server. Please, try again a bit later.'));
 				return false;
 			}
 			// update window with arrived content from the server
@@ -191,7 +191,7 @@ function updatePageContext() {
 		},
 
 		'error': function(){
-			alert('Ошибка на сервере, попробуйте пожалуйста позже.');
+			alert(gettext('There was an error on the server. Please, try again a bit later.'));
 			return false;
 		}
 	});

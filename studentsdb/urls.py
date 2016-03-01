@@ -25,6 +25,11 @@ from students.views.groups import GroupCreateView, GroupUpdateView, GroupDeleteV
 from students.views.journal import JournalView
 
 
+js_info_dict = {
+	'packages': ('students',),
+}
+
+
 urlpatterns = [
  
 # Students urls
@@ -58,6 +63,8 @@ urlpatterns = [
 #Test page
   url(r'^test/$', students.views.test.test,
     name='test'),
+
+	url(r'^jsi18n\.js$', 'django.views.i18n.javascript_catalog', js_info_dict),
 ]
 
 

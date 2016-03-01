@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-16 17:22+0000\n"
+"POT-Creation-Date: 2016-03-01 11:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,386 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/students/base.html:10
+#: models/exam.py:10
+msgid "Exam"
+msgstr ""
+
+#: models/exam.py:11
+msgid "Exams"
+msgstr ""
+
+#: models/exam.py:16 views/contact_admin.py:45
+msgid "Subject"
+msgstr ""
+
+#: models/exam.py:20
+msgid "Date/Time"
+msgstr ""
+
+#: models/exam.py:26
+msgid "Teacher"
+msgstr ""
+
+#: models/exam.py:29 models/groups.py:10 models/students.py:46
+#: templates/students/exams.html:42 views/groups.py:63 views/groups.py:80
+msgid "Group"
+msgstr ""
+
+#: models/groups.py:11 templates/students/base.html.py:73
+#: templates/students/groups_list.html:6 templates/students/groups_list.html:8
+msgid "Groups"
+msgstr ""
+
+#: models/groups.py:16 models/students.py:17
+#: templates/students/groups_list.html:33
+msgid "Name"
+msgstr ""
+
+#: models/groups.py:19 templates/students/groups_list.html.py:42
+msgid "Leader"
+msgstr ""
+
+#: models/groups.py:26 models/students.py:53
+msgid "Extra Notes"
+msgstr ""
+
+#: models/monthjournal.py:10
+msgid "Month journal"
+msgstr ""
+
+#: models/monthjournal.py:11
+msgid "Month journals"
+msgstr ""
+
+#: models/monthjournal.py:14 models/students.py:11
+#: templates/students/journal.html:41 views/students.py:74
+#: views/students.py:97
+msgid "Student"
+msgstr ""
+
+#: models/monthjournal.py:20
+msgid "Date"
+msgstr ""
+
+#: models/students.py:12 templates/students/base.html.py:67
+#: templates/students/students_list.html:7
+msgid "Students"
+msgstr ""
+
+#: models/students.py:22 templates/students/students_list.html.py:34
+msgid "Last Name"
+msgstr ""
+
+#: models/students.py:27
+msgid "Middle Name"
+msgstr ""
+
+#: models/students.py:32
+msgid "Birthday"
+msgstr ""
+
+#: models/students.py:37 templates/students/students_add.html.py:69
+msgid "Foto"
+msgstr ""
+
+#: models/students.py:43
+msgid "Ticket"
+msgstr ""
+
+#: templates/students/base.html:10 templates/students/base.html.py:35
+#: templates/students/base.html:121
 msgid "Students Accounting Service"
+msgstr ""
+
+#: templates/students/base.html:11
+msgid "App to manage students database"
+msgstr ""
+
+#: templates/students/base.html:43
+msgid "Group:"
+msgstr ""
+
+#: templates/students/base.html:45
+msgid "All Students"
+msgstr ""
+
+#: templates/students/base.html:70 templates/students/groups_list.html:71
+#: templates/students/students_list.html:83
+msgid "Journal"
+msgstr ""
+
+#: templates/students/base.html:76 templates/students/exams.html.py:6
+#: templates/students/exams.html:8
+msgid "Tests"
+msgstr ""
+
+#: templates/students/base.html:79
+msgid "Contact"
+msgstr ""
+
+#: templates/students/exams.html:21
+msgid "Subject name"
+msgstr ""
+
+#: templates/students/exams.html:28
+msgid "Date and time"
+msgstr ""
+
+#: templates/students/exams.html:35
+msgid "Teacher's name"
+msgstr ""
+
+#: templates/students/exams.html:57 templates/students/groups_list.html:59
+#: templates/students/groups_list.html:70 templates/students/journal.html:70
+#: templates/students/students_list.html:82
+msgid "Edit"
+msgstr ""
+
+#: templates/students/exams.html:66
+msgid "There are no groups in base yet"
+msgstr ""
+
+#: templates/students/groups_confirm_delete.html:7
+#: templates/students/groups_confirm_delete.html:9
+msgid "Delete Group"
+msgstr ""
+
+#: templates/students/groups_confirm_delete.html:15
+#, python-format
+msgid "Do you really want to delete group: \"%(object)s\"?"
+msgstr ""
+
+#: templates/students/groups_confirm_delete.html:16
+#: templates/students/students_confirm_delete.html:16
+msgid "Yes"
+msgstr ""
+
+#: templates/students/groups_confirm_delete.html:17
+#: templates/students/students_confirm_delete.html:18
+msgid "No"
+msgstr ""
+
+#: templates/students/groups_edit.html:7 templates/students/groups_edit.html:9
+msgid "Edit group"
+msgstr ""
+
+#: templates/students/groups_list.html:14
+msgid "Add group"
+msgstr ""
+
+#: templates/students/groups_list.html:48
+#: templates/students/students_list.html:56
+msgid "Actions"
+msgstr ""
+
+#: templates/students/groups_list.html:61
+msgid "No leader"
+msgstr ""
+
+#: templates/students/groups_list.html:67
+#: templates/students/students_list.html:78
+msgid "Action"
+msgstr ""
+
+#: templates/students/groups_list.html:72
+#: templates/students/students_list.html:84
+msgid "Delete"
+msgstr ""
+
+#: templates/students/journal.html:6 templates/students/journal.html.py:8
+msgid "Visiting"
+msgstr ""
+
+#: templates/students/journal.html:15
+msgid "There are no students in base yet. Please, "
+msgstr ""
+
+#: templates/students/journal.html:16
+msgid "add"
+msgstr ""
+
+#: templates/students/journal.html:16
+msgid "first student"
+msgstr ""
+
+#: templates/students/journal.html:22
+msgid "Changes are saved automatically when you click in a table cell"
+msgstr ""
+
+#: templates/students/journal.html:23
+msgid "Saving is on..."
+msgstr ""
+
+#: templates/students/journal.html:27
+msgid "Last month"
+msgstr ""
+
+#: templates/students/journal.html:32
+msgid "Next month"
+msgstr ""
+
+#: templates/students/students_add.html:6
+#: templates/students/students_add.html:8
+msgid "Add student"
+msgstr ""
+
+#: templates/students/students_add.html:13
+#: templates/students/students_edit.html:14
+msgid "Please correct the following errors"
+msgstr ""
+
+#: templates/students/students_add.html:25
+msgid "Name*"
+msgstr ""
+
+#: templates/students/students_add.html:29
+msgid "Enter your first name"
+msgstr ""
+
+#: templates/students/students_add.html:36
+msgid "Last name*"
+msgstr ""
+
+#: templates/students/students_add.html:40
+msgid "Enter your last name"
+msgstr ""
+
+#: templates/students/students_add.html:47
+#: templates/students/students_add.html:51
+msgid "Middle name"
+msgstr ""
+
+#: templates/students/students_add.html:58
+msgid "Birthday*"
+msgstr ""
+
+#: templates/students/students_add.html:62
+msgid "For example 2001-12-29"
+msgstr ""
+
+#: templates/students/students_add.html:78
+msgid "Ticket# *"
+msgstr ""
+
+#: templates/students/students_add.html:82
+msgid "Enter ticket's number"
+msgstr ""
+
+#: templates/students/students_add.html:89
+msgid "Group*"
+msgstr ""
+
+#: templates/students/students_add.html:93
+msgid "Enter group"
+msgstr ""
+
+#: templates/students/students_add.html:105
+msgid "Notes"
+msgstr ""
+
+#: templates/students/students_add.html:117
+msgid "Cancel"
+msgstr ""
+
+#: templates/students/students_confirm_delete.html:7
+#: templates/students/students_confirm_delete.html:9
+msgid "Delete student"
+msgstr ""
+
+#: templates/students/students_confirm_delete.html:15
+#, python-format
+msgid "Do you really want to delete student: \"%(object)s\"?"
+msgstr ""
+
+#: templates/students/students_edit.html:7
+#: templates/students/students_edit.html:9
+msgid "Edit student"
+msgstr ""
+
+#: templates/students/students_list.html:9
+msgid "Students List"
+msgstr ""
+
+#: templates/students/students_list.html:14
+msgid "Add Student"
+msgstr ""
+
+#: templates/students/students_list.html:30
+msgid "Photo"
+msgstr ""
+
+#: templates/students/students_list.html:43
+msgid "First Name"
+msgstr ""
+
+#: templates/students/students_list.html:51
+msgid "Ticket #"
+msgstr ""
+
+#: views/contact_admin.py:39
+msgid "Send"
+msgstr ""
+
+#: views/contact_admin.py:42
+msgid "Your email"
+msgstr ""
+
+#: views/contact_admin.py:49
+msgid "Text"
+msgstr ""
+
+#: views/contact_admin.py:68
+msgid "Fail sending letter."
+msgstr ""
+
+#: views/contact_admin.py:72
+msgid "Letter was sended successfully!"
+msgstr ""
+
+#: views/groups.py:44 views/students.py:49
+msgid "Save"
+msgstr ""
+
+#: views/groups.py:63
+msgid "was added successfully!"
+msgstr ""
+
+#: views/groups.py:76
+msgid "The student reffer to another group"
+msgstr ""
+
+#: views/groups.py:80
+msgid "was saved successfully!"
+msgstr ""
+
+#: views/groups.py:90
+msgid "Mistake.Group "
+msgstr ""
+
+#: views/groups.py:90
+msgid "is not empty!"
+msgstr ""
+
+#: views/groups.py:93
+msgid "Group was deleted successfully!"
+msgstr ""
+
+#: views/students.py:77
+msgid "added successfully!"
+msgstr ""
+
+#: views/students.py:83
+msgid "Student creating canceled!"
+msgstr ""
+
+#: views/students.py:100
+msgid "edited successfully!"
+msgstr ""
+
+#: views/students.py:106
+msgid "Student editing canceled!"
+msgstr ""
+
+#: views/students.py:119
+msgid "Student deleted successfully!"
 msgstr ""

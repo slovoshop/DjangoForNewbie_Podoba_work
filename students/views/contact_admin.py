@@ -1,5 +1,6 @@
-# -*- coding: utf-8 -*-
 
+
+from django.utils.translation import ugettext as _
 
 from django import forms
 from django.core.urlresolvers import reverse
@@ -35,17 +36,17 @@ class ContactForm(forms.Form):
 		self.helper.field_class = 'col-sm-10'
 
 		# form buttons
-		self.helper.add_input(Submit('send_button', u'Надіслати'))
+		self.helper.add_input(Submit('send_button', _(u'Send')))
 
 	from_email = forms.EmailField(
-		label = u'Ваша Емайл Адреса')
+		label = _(u'Your email'))
 
 	subject = forms.CharField(
-		label=u"Заголовок листа",
+		label=_(u"Subject"),
 		max_length=128)
 
 	message = forms.CharField(
-		label=u"Текст повідомлення",
+		label=_(u"Text"),
 		max_length=2560,
 		widget=forms.Textarea)
 
@@ -64,11 +65,11 @@ class ContactView(FormView):
         	send_mail(subject, message+'\n\nMessage was send from: '+from_email, 'Students DB ', [ADMIN_EMAIL])
           # pass
         except Exception:
-					self.message = u'Під час відправки листа виникла непередбачувана помилка.'
+					self.message = _(u'Fail sending letter.')
 					logger = logging.getLogger(__name__)
 					logger.exception(message)
         else:
-          self.message = u'Повідомлення успішно надіслано.'
+          self.message = _(u'Letter was sended successfully!')
             
         return super(ContactView, self).form_valid(form)
         
