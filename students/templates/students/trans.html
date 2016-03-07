@@ -1,0 +1,58 @@
+
+
+
+{% load i18n %}
+{% load static from staticfiles %}
+{% get_available_languages as LANGUAGES %}
+
+<!DOCTYPE html>
+<html lang="uk">
+
+  <head>
+    <meta charset="UTF-8"/>
+		<title>{% trans "Students Accounting Service" %} - {% block meta_title %}{% endblock meta_title %}</title>
+    <meta name="description" value="{% trans "App to manage students database" %}" />
+    
+    <!-- Include Styles -->
+ 
+    <link rel="stylesheet"
+			href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+		<link rel="stylesheet"
+			href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.0.0/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" 
+			href={{ PORTAL_URL }}{% static "css/main.css" %}>
+
+    {% block extra_css %}{% endblock extra_css %}
+
+  </head>
+
+ <body>
+
+<!--
+{% for lang in LANGUAGES %}
+    <li>
+	  <form name="setLang{{ lang.1}}" action="/" method="POST">
+	  {% csrf_token %}
+	    <input name="next" type="hidden" value="/">
+	    <input name="language" type="hidden" value="{{ lang.0 }}">
+	    <a href="#" onclick="document.setLang{{ lang.1 }}.submit();
+		    return false;">{{ lang.1 }}</a>
+	  </form>
+	</li>
+  {% endfor %}
+-->
+
+<form action="/i18n/setlang/" method="post">
+    {% csrf_token %}
+    <input name="next" type="hidden" value=""/>
+
+    <select class="select-style" name="language" onchange="this.form.submit();" style="width:100px;font-size:12px;">
+    <option selected="selected" disabled="disabled">Select your language</option>
+    {% for lang in LANGUAGES %}
+        <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>{{lang.1|title}}</option>
+    {% endfor %}
+    </select>
+</form>
+
+  </body>
+</html>

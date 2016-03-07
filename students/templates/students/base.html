@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load static from staticfiles %}
 
+
 <!DOCTYPE html>
 <html lang="uk">
 
@@ -31,12 +32,13 @@
 	<div class="row" id="header">
 
 		<!-- Logo -->
-		<div class="col-xs-8">
+		<div class="col-xs-6">
 		  <h1>{% block logo %}{% trans "Students Accounting Service" %}{% endblock logo %}</h1>
+
 		</div>
 
 		<!-- Groups Selector -->
-		<div class="col-xs-4" id="group-selector">
+		<div class="col-xs-6" id="group-selector">
 
 		{% block gselector %}
 
@@ -52,6 +54,7 @@
 		  </select>
 
 		{% endblock gselector %}
+		
 		</div>
 
 	</div>
@@ -119,6 +122,21 @@
 
 		<div class="col-xs-12">
 		&copy; 2016 {% trans "Students Accounting Service" %}
+
+			<!-- Language switcher -->
+			<br><br>
+			<form action="/i18n/setlang/" method="post">
+					{% csrf_token %}
+					<input name="next" type="hidden" value=""/>
+					<select class="select-style" name="language" onchange="this.form.submit();" style="width:150px;font-size:12px;">
+						{% get_available_languages as LANGUAGES %}
+						<option selected="selected" disabled="disabled">Select your language</option>
+						{% for lang in LANGUAGES %}
+								<option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>{{lang.1|title}}</option>
+						{% endfor %}
+					</select>
+			</form>
+
 		</div>
 
 	{% endblock footer %}

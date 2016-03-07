@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Django settings for studentsdb project.
 
@@ -107,13 +109,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'uk'
-
+LANGUAGES = (
+	('uk', 'Ukrainian'),
+	('en', 'English'),
+)
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -187,10 +189,6 @@ LOGGING = {
 }
 
 
-USE_I18N = True
-LANGUAGE_CODE = 'uk'
-USE_L10N = True
-USE_TZ = True
-TIME_ZONE = 'UTC'
+
 
 

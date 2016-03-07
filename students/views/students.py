@@ -44,12 +44,15 @@ class StudentCreateForm(ModelForm):
 		self.helper.field_class = 'col-sm-10'
         
 		# add buttons
+		self.injected_html = u"<a class='btn btn-link' name='cancel_button' \
+			href='%(url)s?status_message=%(translation)s'>%(cancel)s</a>" % \
+			{	'url': 					"http://127.0.0.1:8000/", 
+				'translation': 	_(u"Students adding canceled!"), 
+				'cancel': 			_("Cancel")}
 		self.helper.layout.append(FormActions(
 			Div(css_class = self.helper.label_class),
 			Submit('add_button', _(u'Save'), css_class="btn btn-primary"),
-			HTML(u"<a class='btn btn-link' name='cancel_button' \
-			href='{% url 'home' %}?status_message=Students adding canceled!'>Cancel</a>"),
-			'''Submit('cancel_button', _(u'Cancel'), css_class="btn btn-link"),'''
+			HTML(self.injected_html),
 		))
 
 
@@ -145,7 +148,9 @@ def students_list(request):
 
 
 
-
+# Views for Students
+def trans(request):
+	return render(request, 'students/trans.html')
 
 
 

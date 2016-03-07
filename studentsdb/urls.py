@@ -34,8 +34,8 @@ urlpatterns = [
  
 # Students urls
 
-
   url(r'^$', students.views.students.students_list, name='home'),
+	url(r'^trans/$', students.views.students.trans, name='trans'),
   url(r'^students/add/$', StudentCreateView.as_view(), name='students_add'),
 	url(r'^students/(?P<pk>\d+)/edit/$', StudentUpdateView.as_view(), name='students_edit'),
   url(r'^students/(?P<pk>\d+)/delete/$', StudentDeleteView.as_view(), name='students_delete'),
@@ -44,8 +44,6 @@ urlpatterns = [
   url(r'^groups/$', students.views.groups.groups_list, name='groups'),
 	url(r'^groups/add/$', GroupCreateView.as_view(), name='groups_add'),
 	url(r'^groups/(?P<pk>\d+)/edit/$', GroupUpdateView.as_view(), name='groups_edit'),
-  # url(r'^groups/add/$', students.views.groups.groups_add, name='groups_add'),
-  # url(r'^groups/(?P<gid>\d+)/edit/$', students.views.groups.groups_edit, name='groups_edit'),
   url(r'^groups/(?P<pk>\d+)/delete/$', GroupDeleteView.as_view(), name='groups_delete'),
 
 #Journal urls
@@ -65,6 +63,7 @@ urlpatterns = [
     name='test'),
 
 	url(r'^jsi18n\.js$', 'django.views.i18n.javascript_catalog', js_info_dict),
+	url(r'^i18n/', include('django.conf.urls.i18n')),
 ]
 
 

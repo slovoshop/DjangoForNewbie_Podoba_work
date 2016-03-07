@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-01 11:08+0000\n"
+"POT-Creation-Date: 2016-03-02 12:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,7 +44,7 @@ msgstr "Викладач"
 msgid "Group"
 msgstr "Група:"
 
-#: models/groups.py:11 templates/students/base.html.py:73
+#: models/groups.py:11 templates/students/base.html.py:80
 #: templates/students/groups_list.html:6 templates/students/groups_list.html:8
 msgid "Groups"
 msgstr "Групи"
@@ -71,8 +71,8 @@ msgid "Month journals"
 msgstr "Місячні журнали"
 
 #: models/monthjournal.py:14 models/students.py:11
-#: templates/students/journal.html:41 views/students.py:74
-#: views/students.py:97
+#: templates/students/journal.html:41 views/students.py:78
+#: views/students.py:101
 msgid "Student"
 msgstr "Студент"
 
@@ -80,7 +80,7 @@ msgstr "Студент"
 msgid "Date"
 msgstr "Дата"
 
-#: models/students.py:12 templates/students/base.html.py:67
+#: models/students.py:12 templates/students/base.html.py:74
 #: templates/students/students_list.html:7
 msgid "Students"
 msgstr "Студенти"
@@ -106,7 +106,7 @@ msgid "Ticket"
 msgstr "Білет"
 
 #: templates/students/base.html:10 templates/students/base.html.py:35
-#: templates/students/base.html:121
+#: templates/students/base.html:128
 msgid "Students Accounting Service"
 msgstr "Сервіс обліку студентів"
 
@@ -122,17 +122,17 @@ msgstr "Група:"
 msgid "All Students"
 msgstr "Усі Студенти"
 
-#: templates/students/base.html:70 templates/students/groups_list.html:71
+#: templates/students/base.html:77 templates/students/groups_list.html:71
 #: templates/students/students_list.html:83
 msgid "Journal"
 msgstr "Відвідування"
 
-#: templates/students/base.html:76 templates/students/exams.html.py:6
+#: templates/students/base.html:83 templates/students/exams.html.py:6
 #: templates/students/exams.html:8
 msgid "Tests"
 msgstr "Іспити"
 
-#: templates/students/base.html:79
+#: templates/students/base.html:86
 msgid "Contact"
 msgstr "Контакт"
 
@@ -296,7 +296,7 @@ msgstr "Введіть групу"
 msgid "Notes"
 msgstr "Нотатки"
 
-#: templates/students/students_add.html:117
+#: templates/students/students_add.html:117 views/students.py:49
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -355,7 +355,7 @@ msgstr "Помилка під час відправки листа"
 msgid "Letter was sended successfully!"
 msgstr "Лист успішно надісланий!"
 
-#: views/groups.py:44 views/students.py:49
+#: views/groups.py:44 views/students.py:52
 msgid "Save"
 msgstr "Зберегти"
 
@@ -383,23 +383,27 @@ msgstr " не порожня!"
 msgid "Group was deleted successfully!"
 msgstr "Група успішно видалена з бази!"
 
-#: views/students.py:77
+#: views/students.py:49
+msgid "Students adding canceled!"
+msgstr "Додавання студента скасовано!"
+
+#: views/students.py:81
 msgid "added successfully!"
 msgstr "успішно додан до бази!"
 
-#: views/students.py:83
+#: views/students.py:87
 msgid "Student creating canceled!"
 msgstr "Додавання студента скасовано!"
 
-#: views/students.py:100
+#: views/students.py:104
 msgid "edited successfully!"
 msgstr "успішно відредагован!"
 
-#: views/students.py:106
+#: views/students.py:110
 msgid "Student editing canceled!"
 msgstr "Редагування студента скасовано!"
 
-#: views/students.py:119
+#: views/students.py:123
 msgid "Student deleted successfully!"
 msgstr "Студент успішно видален з бази!"
 
