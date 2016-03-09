@@ -9,6 +9,7 @@ class MonthJournal(models.Model):
 	class Meta:
 		verbose_name = _(u"Month journal")
 		verbose_name_plural = _(u"Month journals")
+		# app_label = 'MonthJournal'
 
 	student = models.ForeignKey('Student',
 						verbose_name=_(u"Student"),

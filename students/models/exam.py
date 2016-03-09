@@ -7,8 +7,9 @@ class Exam(models.Model):
     """Exam Model"""
     
     class Meta(object):
-        verbose_name = _(u"Exam")
-        verbose_name_plural = _(u"Exams")
+				# app_label = "Exam"
+				verbose_name = _(u"Exam")
+				verbose_name_plural = _(u"Exams")
         
     title = models.CharField(
         max_length=256,

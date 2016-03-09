@@ -8,8 +8,9 @@ class Student(models.Model):
     """Student Model"""
 
     class Meta(object):
-        verbose_name = _(u"Student")
-        verbose_name_plural = _(u"Students")
+				# app_label = "Student"
+				verbose_name = _(u"Student")
+				verbose_name_plural = _(u"Students")
 
     first_name = models.CharField(
         max_length=256,

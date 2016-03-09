@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 		'crispy_forms',
-    'students',
+		'registration',
+		'students',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -58,10 +59,12 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'studentsdb.urls'
 
+TEMPLATE_REGISTRATION = os.path.join(BASE_DIR, 'templates')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_REGISTRATION],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,6 +79,12 @@ TEMPLATES = [
         },
     },
 ]
+
+
+#TEMPLATE_DIRS = (
+#os.path.join(BASE_DIR, 'templates'),
+#)
+
 
 WSGI_APPLICATION = 'studentsdb.wsgi.application'
 
@@ -104,6 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REGISTRATION_OPEN = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

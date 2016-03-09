@@ -8,6 +8,7 @@ class Journal(models.Model):
     class Meta(object):
         verbose_name = u"Журнал відвідування"
         verbose_name_plural = u"Журнали відвідування"
+				# app_label = 'Journal'
     
     student_name = models.ForeignKey('Student', verbose_name=u"Студенти")
     

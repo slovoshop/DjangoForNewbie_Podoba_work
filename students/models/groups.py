@@ -7,8 +7,9 @@ class Group(models.Model):
     """Group Model"""
 
     class Meta(object):
-        verbose_name = _(u"Group")
-        verbose_name_plural = _(u"Groups")
+				# app_label = "Group"
+				verbose_name = _(u"Group")
+				verbose_name_plural = _(u"Groups")
 
     title = models.CharField(
         max_length=256,

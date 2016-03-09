@@ -10,6 +10,7 @@ class Student(models.Model):
 	"""Student Model"""
 
 	class Meta(object):
+		# app_label = "Student"
 		verbose_name = u"Студент"
 		verbose_name_plural = u"Студенти"
 
@@ -64,6 +65,7 @@ class Group(models.Model):
 	"""Group Model"""
 
 	class Meta(object):
+		# app_label = "Group"
 		verbose_name = u"Група"
 		verbose_name_plural = u"Групи"
 
