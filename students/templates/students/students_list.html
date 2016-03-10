@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load static from staticfiles %}
 {% load index %}
+{% load pagenav %}
 
 {% block meta_title %}{% trans "Students" %}{% endblock meta_title %}
 
@@ -112,9 +113,7 @@
 	      </table>
 
 
-{% with object_list=students %}
-{% include "students/pagination.html" %}
-{% endwith %}
+{% pagenav students is_paginated paginator %}
 
 
 	    <!-- End Students Listing -->
