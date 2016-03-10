@@ -453,6 +453,26 @@ msgstr "Будь-ласка скоректуйте наступні помилк
 msgid "Login Form"
 msgstr "Форма логування"
 
+#: ./templates/registration/profile.html:14
+msgid "Username"
+msgstr "Нікнейм"
+
+#: ./templates/registration/profile.html:21
+msgid "Email"
+msgstr "Поштова скринька"
+
+#: ./templates/registration/profile.html:28
+msgid "First name"
+msgstr "Ім'я"
+
+#: ./templates/registration/profile.html:35
+msgid "Last name"
+msgstr "По-батькові"
+
+#: ./templates/registration/profile.html:63
+msgid "Joined"
+msgstr "Дата реєстрації"
+
 
 #~ msgid "Do want to delete group: \"%(object)s\"?"
 #~ msgstr "Ви дійсно хочете видалити групу: \"%(object)s\"?"
