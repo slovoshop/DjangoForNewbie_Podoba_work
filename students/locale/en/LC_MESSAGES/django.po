@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-09 12:22+0000\n"
+"POT-Creation-Date: 2016-03-10 16:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Exams"
 msgstr ""
 
-#: models/exam.py:17 views/contact_admin.py:45
+#: models/exam.py:17 views/contact_admin.py:48
 msgid "Subject"
 msgstr ""
 
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Group"
 msgstr ""
 
-#: models/groups.py:12 templates/students/base.html.py:91
+#: models/groups.py:12 templates/students/base.html.py:96
 #: templates/students/groups_list.html:6 templates/students/groups_list.html:8
 msgid "Groups"
 msgstr ""
@@ -69,8 +69,8 @@ msgid "Month journals"
 msgstr ""
 
 #: models/monthjournal.py:15 models/students.py:12
-#: templates/students/journal.html:41 views/students.py:77
-#: views/students.py:100
+#: templates/students/journal.html:41 views/students.py:86
+#: views/students.py:113
 msgid "Student"
 msgstr ""
 
@@ -78,12 +78,12 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: models/students.py:13 templates/students/base.html.py:85
+#: models/students.py:13 templates/students/base.html.py:88
 #: templates/students/students_list.html:7
 msgid "Students"
 msgstr ""
 
-#: models/students.py:23 templates/students/students_list.html.py:36
+#: models/students.py:23 templates/students/students_list.html.py:37
 msgid "Last Name"
 msgstr ""
 
@@ -104,7 +104,7 @@ msgid "Ticket"
 msgstr ""
 
 #: templates/students/base.html:11 templates/students/base.html.py:36
-#: templates/students/base.html:139 templates/students/trans.html.py:13
+#: templates/students/base.html:148 templates/students/trans.html.py:13
 msgid "Students Accounting Service"
 msgstr ""
 
@@ -125,24 +125,32 @@ msgid "Logout"
 msgstr ""
 
 #: templates/students/base.html:70
+msgid "via Facebook"
+msgstr ""
+
+#: templates/students/base.html:72
+msgid "facebook-login"
+msgstr ""
+
+#: templates/students/base.html:73
 msgid "Login"
 msgstr ""
 
-#: templates/students/base.html:71
+#: templates/students/base.html:74
 msgid "Register"
 msgstr ""
 
-#: templates/students/base.html:88 templates/students/groups_list.html:71
-#: templates/students/students_list.html:85
+#: templates/students/base.html:93 templates/students/groups_list.html:71
+#: templates/students/students_list.html:100
 msgid "Journal"
 msgstr ""
 
-#: templates/students/base.html:94 templates/students/exams.html.py:6
+#: templates/students/base.html:99 templates/students/exams.html.py:6
 #: templates/students/exams.html:8
 msgid "Tests"
 msgstr ""
 
-#: templates/students/base.html:97
+#: templates/students/base.html:105
 msgid "Contact"
 msgstr ""
 
@@ -160,11 +168,11 @@ msgstr ""
 
 #: templates/students/exams.html:57 templates/students/groups_list.html:59
 #: templates/students/groups_list.html:70 templates/students/journal.html:70
-#: templates/students/students_list.html:84
+#: templates/students/students_list.html:99
 msgid "Edit"
 msgstr ""
 
-#: templates/students/exams.html:66
+#: templates/students/exams.html:67
 msgid "There are no groups in base yet"
 msgstr ""
 
@@ -197,7 +205,7 @@ msgid "Add group"
 msgstr ""
 
 #: templates/students/groups_list.html:48
-#: templates/students/students_list.html:58
+#: templates/students/students_list.html:60
 msgid "Actions"
 msgstr ""
 
@@ -206,12 +214,12 @@ msgid "No leader"
 msgstr ""
 
 #: templates/students/groups_list.html:67
-#: templates/students/students_list.html:80
+#: templates/students/students_list.html:95
 msgid "Action"
 msgstr ""
 
 #: templates/students/groups_list.html:72
-#: templates/students/students_list.html:86
+#: templates/students/students_list.html:101
 msgid "Delete"
 msgstr ""
 
@@ -306,7 +314,7 @@ msgstr ""
 msgid "Notes"
 msgstr ""
 
-#: templates/students/students_add.html:117 views/students.py:51
+#: templates/students/students_add.html:117 views/students.py:56
 msgid "Cancel"
 msgstr ""
 
@@ -329,47 +337,47 @@ msgstr ""
 msgid "Students List"
 msgstr ""
 
-#: templates/students/students_list.html:14
+#: templates/students/students_list.html:15
 msgid "Add Student"
 msgstr ""
 
 #: templates/students/students_list.html:16
-msgid "Trans"
+msgid "Test"
 msgstr ""
 
-#: templates/students/students_list.html:32
+#: templates/students/students_list.html:33
 msgid "Photo"
 msgstr ""
 
-#: templates/students/students_list.html:45
+#: templates/students/students_list.html:46
 msgid "First Name"
 msgstr ""
 
-#: templates/students/students_list.html:53
+#: templates/students/students_list.html:54
 msgid "Ticket #"
 msgstr ""
 
-#: views/contact_admin.py:39
+#: views/contact_admin.py:42
 msgid "Send"
 msgstr ""
 
-#: views/contact_admin.py:42
+#: views/contact_admin.py:45
 msgid "Your email"
 msgstr ""
 
-#: views/contact_admin.py:49
+#: views/contact_admin.py:52
 msgid "Text"
 msgstr ""
 
-#: views/contact_admin.py:68
+#: views/contact_admin.py:75
 msgid "Fail sending letter."
 msgstr ""
 
-#: views/contact_admin.py:72
+#: views/contact_admin.py:79
 msgid "Letter was sended successfully!"
 msgstr ""
 
-#: views/groups.py:44 views/students.py:54
+#: views/groups.py:44 views/students.py:59
 msgid "Save"
 msgstr ""
 
@@ -397,26 +405,26 @@ msgstr ""
 msgid "Group was deleted successfully!"
 msgstr ""
 
-#: views/students.py:50
+#: views/students.py:55
 msgid "Students adding canceled!"
 msgstr ""
 
-#: views/students.py:80
+#: views/students.py:89
 msgid "added successfully!"
 msgstr ""
 
-#: views/students.py:86
+#: views/students.py:95
 msgid "Student creating canceled!"
 msgstr ""
 
-#: views/students.py:103
+#: views/students.py:116
 msgid "edited successfully!"
 msgstr ""
 
-#: views/students.py:109
+#: views/students.py:122
 msgid "Student editing canceled!"
 msgstr ""
 
-#: views/students.py:122
+#: views/students.py:139
 msgid "Student deleted successfully!"
 msgstr ""
