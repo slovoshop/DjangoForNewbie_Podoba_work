@@ -59,7 +59,9 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'studentsdb.urls'
 
-TEMPLATE_REGISTRATION = os.path.join(BASE_DIR, 'templates')
+LOGIN_URL 						= 'users:auth_login'
+LOGOUT_URL 						= 'users:auth_logout'
+TEMPLATE_REGISTRATION = os.path.join(BASE_DIR, 'templates') # location of login/registry templates 
 
 TEMPLATES = [
     {

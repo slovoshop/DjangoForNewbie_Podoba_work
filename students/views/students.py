@@ -21,6 +21,11 @@ from crispy_forms.bootstrap import FormActions
 
 from ..util import paginate, get_current_group
 
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+
+
+
 # class of form adding student
 class StudentCreateForm(ModelForm):
 	class Meta:
@@ -70,6 +75,10 @@ class StudentCreateView(CreateView):
     model = Student
     template_name = 'students/students_edit.html'
     form_class = StudentCreateForm
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+      return super(StudentCreateView, self).dispatch(*args, **kwargs)
     
     def get_success_url(self):
 			return u'%s?status_message=%s %s %s %s' % (
@@ -90,31 +99,39 @@ class StudentCreateView(CreateView):
 
 # editing student
 class StudentUpdateView(UpdateView):
-    model = Student
-    template_name = 'students/students_edit.html'
-    form_class = StudentUpdateForm
-    
-    def get_success_url(self):
-        return u'%s?status_message=%s %s %s %s' % (
-					reverse('home'),
-					_(u"Student"),
-          self.request.POST.get('first_name'), 
-					self.request.POST.get('last_name'),
-					_(u"edited successfully!"))
+	model = Student
+	template_name = 'students/students_edit.html'
+	form_class = StudentUpdateForm
+
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		return super(StudentUpdateView, self).dispatch(*args, **kwargs)
+
+	def get_success_url(self):
+		return u'%s?status_message=%s %s %s %s' % (
+			reverse('home'),
+			_(u"Student"),
+			self.request.POST.get('first_name'), 
+			self.request.POST.get('last_name'),
+			_(u"edited successfully!"))
         
-    def post(self, request, *args, **kwargs):
-        if request.POST.get('cancel_button'):
-            return HttpResponseRedirect(u'%s?status_message=%s' % (
-							reverse('home'),
-							_(u"Student editing canceled!")))
-        else:
-            return super(StudentUpdateView, self).post(request, *args, **kwargs)
+	def post(self, request, *args, **kwargs):
+		if request.POST.get('cancel_button'):
+			return HttpResponseRedirect(u'%s?status_message=%s' % (
+				reverse('home'),
+				_(u"Student editing canceled!")))
+		else:
+			return super(StudentUpdateView, self).post(request, *args, **kwargs)
 
 
 # deleting student
 class StudentDeleteView(DeleteView):
 	model = Student
 	template_name = 'students/students_confirm_delete.html'
+
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		return super(StudentDeleteView, self).dispatch(*args, **kwargs)
 
 	def get_success_url(self):
 		return u'%s?status_message=%s' % (
@@ -150,7 +167,12 @@ def students_list(request):
 
 # Views for Students
 def trans(request):
-	return render(request, 'students/trans.html')
+	import os
+	from django.conf import global_settings
+
+	test = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+	return render(request, 'students/trans.html', {'test': test})
 
 
 

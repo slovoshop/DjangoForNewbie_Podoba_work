@@ -83,6 +83,8 @@
 		    {% url "home" as root_path %}
         <li role="presentation" {% if request.path == root_path %}class="active"{% endif %}>
 					<a href="{% url "home" %}">{% trans "Students" %}</a></li>
+
+				{% if user.is_authenticated %}
 		    {% url "journal" as url_journal %}
         <li role="presentation" {% if url_journal in request.path %}class="active"{% endif %}>
 					<a href="{% url "journal" %}">{% trans "Journal" %}</a></li>
@@ -92,9 +94,13 @@
 			  {% url "exams" as url_exams %}
         <li role="presentation" {% if url_exams in request.path %}class="active"{% endif %}>
 					<a href="{% url "exams" %}">{% trans "Tests" %}</a></li> 
+				{% endif %}
+
+				{% if perms.auth.add_user %}
 			  {% url "contact_admin" as url_contact_admin %}
 				<li role="presentation" {% if url_contact_admin in request.path %}class="active"{% endif %}>
 					<a href="{% url "contact_admin" %}">{% trans "Contact" %}</a></li>
+				{% endif %}
 		  </ul>
 		</div>
 

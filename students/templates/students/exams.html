@@ -62,12 +62,15 @@
   </tbody>
 </table>
 <!-- End Listing -->
+
 {% else %}
  <p>{% trans "There are no groups in base yet" %}</p>
+
 {% endif %}
 
 {% with object_list=students %}
 {% include "students/pagination.html" %}
 {% endwith %}
+
 
 {% endblock content %}

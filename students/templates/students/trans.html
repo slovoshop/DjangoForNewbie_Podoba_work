@@ -28,23 +28,19 @@
 
  <body>
 
-<!--
-{% for lang in LANGUAGES %}
-    <li>
-	  <form name="setLang{{ lang.1}}" action="/" method="POST">
-	  {% csrf_token %}
-	    <input name="next" type="hidden" value="/">
-	    <input name="language" type="hidden" value="{{ lang.0 }}">
-	    <a href="#" onclick="document.setLang{{ lang.1 }}.submit();
-		    return false;">{{ lang.1 }}</a>
-	  </form>
-	</li>
-  {% endfor %}
--->
+
+	<br><br>
+
+	&nbsp;&nbsp;&nbsp; 
+	test = {{ test }}<br>
+
+	<br><br>
 
 <form action="/i18n/setlang/" method="post">
     {% csrf_token %}
     <input name="next" type="hidden" value=""/>
+		
+		&nbsp;&nbsp;&nbsp;
 
     <select class="select-style" name="language" onchange="this.form.submit();" style="width:100px;font-size:12px;">
     <option selected="selected" disabled="disabled">Select your language</option>

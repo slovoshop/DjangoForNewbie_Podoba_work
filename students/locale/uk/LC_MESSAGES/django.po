@@ -448,5 +448,11 @@ msgstr "Підтвердіть пароль"
 msgid "Please, correct the following errors."
 msgstr "Будь-ласка скоректуйте наступні помилки"
 
+#: ./templates/registration/login.html:5
+#: ./templates/registration/login.html:7
+msgid "Login Form"
+msgstr "Форма логування"
+
+
 #~ msgid "Do want to delete group: \"%(object)s\"?"
 #~ msgstr "Ви дійсно хочете видалити групу: \"%(object)s\"?"

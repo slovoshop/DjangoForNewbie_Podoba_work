@@ -14,6 +14,9 @@ from studentsdb.settings import ADMIN_EMAIL
 
 import logging
 
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import permission_required
+
 
 class ContactForm(forms.Form):
 
@@ -54,7 +57,11 @@ class ContactForm(forms.Form):
 class ContactView(FormView):
     template_name = 'contact_admin/form.html'
     form_class = ContactForm
-    
+
+    @method_decorator(permission_required('auth.add_user'))
+    def dispatch(self, *args, **kwargs):
+      return super(ContactView, self).dispatch(*args, **kwargs)
+
     def form_valid(self, form):
         """This method is called for valid data"""
         subject = form.cleaned_data['subject']
