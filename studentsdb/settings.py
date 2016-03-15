@@ -12,6 +12,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
+
+
 import os
 from django.conf import global_settings
 
@@ -127,6 +129,8 @@ REGISTRATION_OPEN = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
+
+#DEFAULT_CHARSET='utf-8' 
 
 LANGUAGE_CODE = 'uk'
 LANGUAGES = (

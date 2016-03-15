@@ -51,7 +51,7 @@ class StudentCreateForm(ModelForm):
 		# add buttons
 		self.injected_html = u"<a class='btn btn-link' name='cancel_button' \
 			href='%(url)s?status_message=%(translation)s'>%(cancel)s</a>" % \
-			{	'url': 					"http://127.0.0.1:8000/", 
+			{	'url': 					reverse('home'), 
 				'translation': 	_(u"Students adding canceled!"), 
 				'cancel': 			_("Cancel")}
 		self.helper.layout.append(FormActions(
@@ -60,7 +60,7 @@ class StudentCreateForm(ModelForm):
 			HTML(self.injected_html),
 		))
 
-
+# "http://127.0.0.1:8000/"
 
 # class of form editing student
 class StudentUpdateForm(StudentCreateForm):
