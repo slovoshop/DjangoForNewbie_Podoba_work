@@ -1,0 +1,11 @@
+*.pyc
+*~
+*.egg-info
+*.mo
+*.egg
+db.py
+manage.py
+demo_data.json
+studentsdb.log
+env_settings.py
+

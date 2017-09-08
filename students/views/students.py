@@ -167,6 +167,7 @@ def students_list(request):
 
 # Views for Students
 def trans(request):
+	import pdb;pdb.set_trace()
 	import os
 	from django.conf import global_settings
 

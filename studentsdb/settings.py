@@ -17,20 +17,25 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 from django.conf import global_settings
 
+from .evn_settings import SECRET_KEY, DEBUG, TEMPLATE_DEBUG, ALLOWED_HOSTS
+from .env_settings import SOCIAL_AUTH_FACEBOOK_SECRET, SOCIAL_AUTH_FACEBOOK_KEY
+from .env_settings import DATABASES, STATIC_URL, MEDIA_URL, MEDIA_ROOT
+from .env_settings import ADMIN_EMAIL, EMAIL_HOST, EMAIL_PORT, EMAIL_USE_SSL
+from .env_settings import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_USE_TLS
+from .env_settings import PORTAL_URL
+
+# in dev envrironment we may not have STATIC_ROOT defined
+try:
+    from .env_settings import STATIC_ROOT
+except ImportError:
+    pass
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'm97glh*^-^(v$1urstuld512@i@ep=2vt4h_)ajo(ag%ytcxa!'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -48,6 +53,7 @@ INSTALLED_APPS = [
 		'django_coverage',
 		'students',
 		'studentsdb',
+		'dbbackup',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -62,6 +68,9 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+DBBACKUP_STORAGE = 'dbbackup.storage.filesystem_storage'
+DBBACKUP_STORAGE_OPTIONS = {'location': os.path.join(BASE_DIR, 'backups')}
 
 ROOT_URLCONF = 'studentsdb.urls'
 
@@ -96,16 +105,8 @@ AUTHENTICATION_BACKENDS = (
 	'django.contrib.auth.backends.ModelBackend',
 )
 
-from .db import SOCIAL_AUTH_FACEBOOK_KEY, SOCIAL_AUTH_FACEBOOK_SECRET
-
 
 WSGI_APPLICATION = 'studentsdb.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-from .db import DATABASES
 
 
 # Password validation
@@ -152,17 +153,6 @@ PORTAL_URL = ''
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
-
-# email settings
-# please, set here you smtp server details and your admin email
-
-from .db import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
-
-ADMIN_EMAIL = 'k6_alexstr@ukr.net'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
